@@ -1,0 +1,10 @@
+@mixin unstyled-list{
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+@mixin unstyled-link{
+    color: inherit;
+    text-decoration: none;
+}

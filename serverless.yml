@@ -1,0 +1,21 @@
+service: airlinesserver
+app: airlines
+org: rjpdeveloper
+provider:
+  name: aws
+  runtime: nodejs12.x
+functions:
+  getData:
+    handler: aviationstack.fetchData
+    events:
+      - http:
+          path: flights
+          method: get
+          cors: true
+  getSpecificData:
+    handler: aviationstack.fetchSpecificFlightData
+    events:
+      - http:
+          path: flights/{airport}/{id}
+          method: get
+          cors: true

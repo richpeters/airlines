@@ -1,0 +1,223 @@
+// Flight navigation
+.flight-link-panel {
+    display: flex;
+    overflow: hidden;
+    flex-flow: column nowrap;
+
+    .flight-link-panel__headers {
+        display: flex;
+        padding: 0 1rem;
+        box-shadow: 0px 0.25rem 0.75rem -0.375rem rgba(black, 0.25);
+        flex: 0;
+
+        * {
+            flex: 1;
+            display: flex;
+            flex-flow: row nowrap;
+            margin-bottom: 0.5rem;
+        }
+
+        * + * {
+            margin-left: 1rem;
+        }
+    }
+
+    .flight-link-panel__options {
+        overflow: auto;
+        flex: 1;
+        padding-bottom: 1rem;
+    }
+}
+
+.flight-link {
+    @include unstyled-link; 
+
+    display: flex;
+    flex-flow: row nowrap;
+    padding: 0.5rem 1rem;
+    user-select: none;
+
+    + .flight-link {
+        border-top: 2px solid grey;
+    }
+
+    > * {
+        flex: 1;
+    }
+
+    > * + * {
+        margin-left: 1rem;
+    }
+
+    &:hover {
+        background: rgba(black, 0.05);
+    }
+}
+
+.flight-link__times {
+    display: flex;
+    flex-flow: row nowrap;
+
+    > * {
+        flex: 1;
+    }
+
+    > * + * {
+        margin-left: 1rem;
+    }
+}
+
+.flight-link__identifier,
+.flight-link__destination {
+    display: flex;
+    flex-flow: column nowrap;
+}
+
+.flight-link__identifier {
+    strong {
+        display: flex;
+        align-items: center;
+    }
+
+    .live {
+        display: inline-flex;
+        align-items: center;
+        color: $color-delay;
+        margin-left: 0.5rem;
+        animation: flash 0.75s alternate infinite;
+
+        &:before {
+            content: '';
+            display: block;
+            width: 0.675rem;
+            height: 0.675rem;
+            flex-shrink: 0;
+            background: $color-delay;
+            border-radius: 50%;
+            font-size: 0;
+            overflow: hidden;
+            margin-right: 0.25rem;
+        }
+    }
+}
+
+.flight-link__destination {
+    span {
+        display: none;
+
+        @include breakpoint(large) {
+            display: block;
+        }
+    }
+}
+
+
+// Flight details
+.flight-detail__panel {
+    display: flex;
+    flex-flow: column nowrap;
+    flex: 1;
+    min-height: 0;
+
+    .flight-details {
+        flex: 1;
+    }
+}
+
+.flight-details__holder {
+    padding: 0 1rem 1rem;
+    border: 2px solid black;
+    border-top: 0;
+    flex: 1;
+    min-height: 1px;
+    overflow: auto;
+
+    > .button-row {
+        margin-left: calc(-1rem - 2px);
+    }
+}
+
+.flight-details__meta,
+.flight-details__arrival {
+    p {
+        margin: 0;
+    }
+}
+
+.flight-details__meta {
+    margin-top:  3rem;
+}
+
+.flight-detail__controls {
+    border-bottom: 2px solid black;
+
+    ul {
+        @include unstyled-list;
+
+        display: flex;
+    }
+
+    a {
+        @include unstyled-link; 
+        
+        display: inline-block;
+        padding: 0.5rem 1rem;
+        border: 2px solid black;
+        border-bottom: none;
+
+        &.active {
+            background: black;
+            color: white;
+        }
+    }
+}
+
+// Flight globe
+.flight-globe {
+    flex: 1;
+    position: relative;
+    background: black;
+    min-height: 0;
+
+    canvas {
+        outline: none;
+    }
+
+    &::after {
+        content: '';
+        display: block;
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 12.5rem;
+        background: linear-gradient(180deg, rgba(black, 0.75) 12.5%, rgba(black, 0) 100%);
+    }
+}
+
+.flight-globe__top-bar {
+    position: absolute;
+    left: 0;
+    z-index: 100;
+    color: white;
+}
+
+.flight-globe__details {
+    padding-left: 1rem;
+
+    > * + * {
+        margin: 0;
+    }
+}
+
+// Animations
+@keyframes flash {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+// Utility classes
+.delay {
+    color: $color-delay;
+    font-weight: 600;
+}

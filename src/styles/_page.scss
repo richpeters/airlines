@@ -1,0 +1,19 @@
+.content {
+    display: flex;
+    flex-flow: column nowrap;
+    height: 100vh;
+    padding: 1rem;
+    overflow: hidden;
+}
+
+.brand {
+    margin-bottom: 2rem;
+
+    h1 {
+        margin: 1rem 0 0.5rem 0;
+    }
+
+    :last-child {
+        margin-bottom: 0;
+    }
+}
