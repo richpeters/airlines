@@ -14,7 +14,11 @@
 :root {
     font-family: 'Roboto Mono', monospace;
     line-height: 1.5;
-    font-size: 87.5%;
+    font-size: 75%;
+
+    @include breakpoint(small) {
+        font-size: 87.5%;
+    }
 
     @include breakpoint(medium) {
         font-size: 100%;
