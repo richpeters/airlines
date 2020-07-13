@@ -49,8 +49,8 @@ class App extends Component {
         return (
             <div className="content">
                 <div className="brand">
-                    <h1>The <em>delayed</em> flightTracker</h1>
-                    <p>Your source of currently delayed flight!</p>
+                    <h1>The <em>delayed</em> FlightTracker</h1>
+                    <p>Your source of currently delayed flights!</p>
                 </div>
                 {this.renderError()}
                 {!error && flights &&

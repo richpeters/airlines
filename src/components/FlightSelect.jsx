@@ -8,13 +8,13 @@ const FlightSelect = () => {
 
     return ( 
         <nav className='flight-link-panel'>
-            <div className="flight-link-panel__headers" aria-hidden="true">
-                <h5>Flight</h5>
+            <div className="flight-link__headers" aria-hidden="true">
+                <p className="flight-link__header">Flight</p>
                 <div>
-                    <h5>Depart</h5>
-                    <h5>Arrival</h5>
+                    <p className="flight-link__header flight-link__headers__depart">Depart</p>
+                    <p className="flight-link__header">Arrival</p>
                 </div>
-                <h5>Destination</h5>
+                <p className="flight-link__header">Dest.</p>
             </div>
 
             <div className="flight-link-panel__options">
@@ -31,11 +31,11 @@ const FlightSelect = () => {
                         <div className="flight-link__times">
                             <div className="flight-link__times__departure">
                                 <Moment date={flight.departure.estimated} format='HH:MM' />
-                                {flight.departure.delay && <span> / <strong className="delay">{flight.departure.delay}&nbsp;min(s)</strong></span> }
+                                <span> / <strong className="delay">{flight.departure.delay}&nbsp;min(s)</strong></span>
                             </div>
                             <div className="flight-link__times__arrival">
                                 <Moment date={flight.arrival.estimated} format='HH:MM' />
-                                {flight.arrival.delay && <span> / <strong className="delay">{flight.arrival.delay}&nbsp;min(s)</strong></span> }
+                                <span> / <strong className="delay">{flight.arrival.delay}&nbsp;min(s)</strong></span>
                             </div>
                         </div>
                         <div className="flight-link__destination">
