@@ -35,7 +35,7 @@ const FlightSelect = () => {
                             </div>
                             <div className="flight-link__times__arrival">
                                 <Moment date={flight.arrival.estimated} format='HH:MM' />
-                                <span> / <strong className="delay">{flight.arrival.delay}&nbsp;min(s)</strong></span>
+                                {flight.arrival.delay && <span> / <strong className="delay">{flight.arrival.delay}&nbsp;min(s)</strong></span> }
                             </div>
                         </div>
                         <div className="flight-link__destination">
